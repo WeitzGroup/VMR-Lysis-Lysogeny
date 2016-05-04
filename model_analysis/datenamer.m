@@ -1,3 +1,9 @@
+% Part of the code used in:
+% Weitz et al. Lysis, Lysogeny, and Virus-Microbe Ratios
+% 
+% From https://github.com/WeitzGroup/VMR-Lysis-Lysogeny
+% MIT License
+
 function datenamer(xpos,ypos,rot)
 % datenamer(xpos,ypos,rot)
 % plot a date and name stamp on current graph
