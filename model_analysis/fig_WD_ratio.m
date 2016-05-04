@@ -1,3 +1,9 @@
+% Part of the code used in:
+% Weitz et al. Lysis, Lysogeny, and Virus-Microbe Ratios
+% 
+% From https://github.com/WeitzGroup/VMR-Lysis-Lysogeny
+% MIT License
+
 clf;
 clear all
 % automatically create postscript whenever
