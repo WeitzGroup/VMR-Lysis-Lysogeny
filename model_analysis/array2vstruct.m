@@ -1,3 +1,9 @@
+% Part of the code used in:
+% Weitz et al. Lysis, Lysogeny, and Virus-Microbe Ratios
+% 
+% From https://github.com/WeitzGroup/VMR-Lysis-Lysogeny
+% MIT License
+
 function s = array2vstruct(x_array,fnames)
 % function s = array2vstruct(x_array,fnames)
 % This is a function which takes an array of values
