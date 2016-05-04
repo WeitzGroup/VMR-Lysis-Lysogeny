@@ -1,3 +1,8 @@
+# Part of the code used in:
+# Weitz et al. Lysis, Lysogeny, and Virus-Microbe Ratios
+# 
+# From https://github.com/WeitzGroup/VMR-Lysis-Lysogeny
+# MIT License
 
 
 ##  R file for reanalysis of Knowles et al. 2016 figure S4a: Microbial cells vs. % prophage-like reads
@@ -37,39 +42,7 @@ library(resample)  # required for bootstrap sampling
 
 
 
-
-
-
-### Recreate Fig S4a as in Knowles et al. 2016 ###
-
-
-
-
-
-#1) perform robust regression
-# We thank Knowles et al. for supplying us with the code they used in their analysis
-
-	rlmfit4 <- rlm(PProphage ~ log10(Cells), DATA, method="MM", maxit=1000)
-
-#2) plot
-
-	Cellrange = seq(0.2*10^6,5*10^6,length.out=100)
-
-	plot(PProphage~(Cells),data=DATA,xlab=bquote("Microbial cells ml"^-1),ylab="% provirus like reads",log="x",xaxt="n",xlim=c(0.2*10^6,5*10^6),pch=19,cex=0.5)
-	axis(1, at=c(0.25,0.5,1,2.5,5)*10^6)
-	lines( (rlmfit4$coefficients[2]*log10(Cellrange) + rlmfit4$coefficients[1])  ~ Cellrange ,data=DATA)
-	dev.copy2pdf(file="Recreate_S4_Knowles.pdf")
-	dev.off()
-
-
-
-
-
-
-
 ### Reanalyse confidence intervals for data ###
-
-
 
 
 
@@ -80,9 +53,7 @@ SAMPLES <- 10000 #want to use 10,000 bootstrap samples
 #95%
 CONF_LEVEL_95 <- 0.95
 PROBS_95 <- (1 + c(-1, 1) * CONF_LEVEL_95) / 2 
-#90%
-CONF_LEVEL_90 <- 0.9
-PROBS_90 <- (1 + c(-1, 1) * CONF_LEVEL_90) / 2 
+
 
 
 
@@ -98,7 +69,6 @@ PROBS_90 <- (1 + c(-1, 1) * CONF_LEVEL_90) / 2
 	PearsonBS = bootstrap(DATA, FPearson, SAMPLES) #perform a 10,000 sample bootstrap
 	
 	Pearson95 = quantile(PearsonBS$replicates, probs = PROBS_95)
-	Pearson90 = quantile(PearsonBS$replicates, probs = PROBS_90)
 
 	print("Pearson 95% CI:")
 	print(Pearson95)
@@ -113,7 +83,6 @@ PROBS_90 <- (1 + c(-1, 1) * CONF_LEVEL_90) / 2
 	KendallBS = bootstrap(DATA, FKendall, SAMPLES) #perform a 10,000 sample bootstrap
 		
 	Kendall95 = quantile(KendallBS$replicates, probs = PROBS_95)
-	Kendall90 = quantile(KendallBS$replicates, probs = PROBS_90)
 
 	print("Kendall 95% CI:")
 	print(Kendall95)
@@ -128,10 +97,10 @@ PROBS_90 <- (1 + c(-1, 1) * CONF_LEVEL_90) / 2
 	SpearmanBS = bootstrap(DATA, FSpearman, SAMPLES) #perform a 10,000 sample bootstrap
 		
 	Spearman95 = quantile(SpearmanBS$replicates, probs = PROBS_95)
-	Spearman90 = quantile(SpearmanBS$replicates, probs = PROBS_90)
 
 	print("Spearman estimation 95% CI:")
 	print(Spearman95)
+
 
 ## Robust regression techniques
 
@@ -149,7 +118,6 @@ PROBS_90 <- (1 + c(-1, 1) * CONF_LEVEL_90) / 2
 	STbi = dim(USE)
 
 	Tbis95 = quantile(USE[,2], probs = PROBS_95)
-	Tbis90 = quantile(USE[,2], probs = PROBS_90)
 
 	print("Tukey bisquare 95% CI:")
 	print(Tbis95)
@@ -168,7 +136,6 @@ PROBS_90 <- (1 + c(-1, 1) * CONF_LEVEL_90) / 2
 	SHuber = dim(USE)
 
 	Huber95 = quantile(USE[,2], probs = PROBS_95)
-	Huber90 = quantile(USE[,2], probs = PROBS_90)
 
 	print("Huber estimation 95% CI:")
 	print(Huber95)
@@ -187,7 +154,6 @@ PROBS_90 <- (1 + c(-1, 1) * CONF_LEVEL_90) / 2
 	SHampel = dim(USE)
 
 	Hampel95 = quantile(USE[,2], probs = PROBS_95)
-	Hampel90 = quantile(USE[,2], probs = PROBS_90)
 
 	print("Hampel estimation 95% CI:")
 	print(Hampel95)
