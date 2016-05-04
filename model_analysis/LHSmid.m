@@ -1,3 +1,9 @@
+% Part of the code used in:
+% Weitz et al. Lysis, Lysogeny, and Virus-Microbe Ratios
+% 
+% From https://github.com/WeitzGroup/VMR-Lysis-Lysogeny
+% MIT License
+
 function LHSample = LHSmid(nS,pmin,pmax,r)
 %function LHSample = LHSmid(nS,pmin,pmax,r)
 %
