@@ -20,6 +20,7 @@ WD — Weitz & Duschoff model  (Weitz & Duschoff, 2008)
 
  * *fig_WD_ratio.m*
 <br><br>
+lv_stats.mat, ptw_stats.mat and wd_stats.mat contain the data used, for each respective model, in the manuscript.
 
 Additional functions: 
  * *LHSmid.m*  &nbsp; - &nbsp;    function to perform Latin hypercube sampling
