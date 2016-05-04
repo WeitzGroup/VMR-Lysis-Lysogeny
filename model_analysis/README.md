@@ -16,7 +16,7 @@ PtW — Piggyback-the-Winner model  (Knowles et al. 2016)
 
  * *fig_PtW_ratio.m*
 
-WD — Weitz & Duschoff model  (Weitz & Duschoff, 2008)
+WD — Weitz & Dushoff model  (Weitz & Dushoff, 2008)
 
  * *fig_WD_ratio.m*
 <br><br>
@@ -34,7 +34,7 @@ Additional functions:
 
 #### References
 
-Weitz J.S., Beckett S.J., Brum J.R., Cael B.B., Dushoff J. Lysis, Lysogeny and Virus-Microbe Ratios. *In submission.*
+Weitz J.S., Beckett S.J., Brum J.R., Cael B.B., Dushoff J. Lysis, Lysogeny, and Virus-Microbe Ratios. *In submission.*
 
 Knowles B. et al. 2016. Lytic to temperate switching of viral communities. *Nature*. 531: 466–470. [doi:10.1038/nature17193](http://dx.doi.org/10.1038/nature17193)
 
