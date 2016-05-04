@@ -3,7 +3,7 @@ Virome evaluation
 =============================
 
 
-Data from Knowles et al. 2016 is re-evaluated using R (version 3.2.3) and packages MASS (version 7.3-44) and resample (version 0.4)
+Data from Knowles et al. 2016 is re-evaluated using R (version 3.2.3) and packages MASS (version 7.3-44) and resample (version 0.4).
 
 ## Data
 
